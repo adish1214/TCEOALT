@@ -36,12 +36,12 @@
   </head>
   <body>
     <div class="header">
-      <div class="registration-form" id="modal">
+      <div class="registration-form" >
         <div class="form-background"></div>
         <form>
           <div class="form-container">
             <div class="close-button-container">
-              <a href="#" class="close-link">
+              <a  class="close-link">
                 <img src="Images/Icons/close-button.jpg" />
               </a>
             </div>
@@ -103,7 +103,7 @@
         <a href="#page2">About</a>
         <a href="#page3">Speakers</a>
         <a href="#page4">Schedule</a>
-        <a class="registration-button" href="#modal"> Register </a>
+        <a class="registration-button"> Register </a>
       </div>
       <div class="right-section-alternative">
         <a href="#page1"
@@ -2225,7 +2225,7 @@
         </div>
       </div>
     </div>
-    <div id="page2" class="event-info">
+    <div id="page2" class="event-info ">
       <h1 class="about-heading">About The Events</h1>
       <div class="about-paragraph-container">
         <p class="about-paragraph">
@@ -2635,4 +2635,28 @@
       </div>
     </div>
   </body>
+  <script>
+        window.addEventListener("scroll", reveal);
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowheight = window.innerHeight;
+        var revealtop = reveals[i].getBoundingClientRect().top;
+        var revealpoint = 150;
+        if (revealtop < windowheight - revealpoint) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+    let popup = document.querySelector(".registration-form");
+    let registerBtn=document.querySelector('.registration-button')
+    let closeBtn=document.querySelector(".close-button-container")
+    registerBtn.addEventListener('click',()=>{
+      popup.classList.toggle('popup')
+    })
+    closeBtn.addEventListener('click',()=>{
+      popup.classList.remove('popup')
+    })
+    
+  </script>
 </html>
